@@ -1,19 +1,23 @@
-// import MyButton from './my-button/src/MyButton';
-// import MyRadio from './my-radio/src/MyRadio';
-// import MyRadioGroup from './my-radio-group/src/MyRadioGroup';
+/* 打包配置文件 */
 import MyCheckbox from '../packages/my-checkbox/index';
 import MyCheckboxGroup from '../packages/my-checkbox-group/index';
 
 import MyButton from '../packages/my-button/index';
 import MyRadio from '../packages/my-radio/index';
 import MyRadioGroup from '../packages/my-radio-group/index';
+import MyInput from '../packages/my-input/index';
+import MyFormItem from '../packages/my-form-item/index';
+import MyForm from '../packages/my-form/index';
 
 const components = [
     MyCheckbox,
     MyCheckboxGroup,
     MyButton,
     MyRadio,
-    MyRadioGroup
+    MyRadioGroup,
+    MyInput,
+    MyFormItem,
+    MyForm
 ]
 
 const componentsName: string[] = [
@@ -21,7 +25,10 @@ const componentsName: string[] = [
     'MyCheckboxGroup',
     'MyButton',
     'MyRadio',
-    'MyRadioGroup'
+    'MyRadioGroup',
+    'MyInput',
+    'MyFormItem',
+    'MyForm'
 ]
 
 const install = (Vue: any, opts = {}) => {
@@ -41,13 +48,19 @@ const API = {
     MyCheckboxGroup,
     MyButton,
     MyRadio,
-    MyRadioGroup
+    MyRadioGroup,
+    MyInput,
+    MyFormItem,
+    MyForm
 }
 export {
     MyCheckbox,
     MyCheckboxGroup,
     MyButton,
     MyRadio,
-    MyRadioGroup
+    MyRadioGroup,
+    MyInput,
+    MyFormItem,
+    MyForm
 }
 export default API

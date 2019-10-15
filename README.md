@@ -1,29 +1,23 @@
 # my-plugin
 
-## Project setup
+## 安装依赖
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 本地启动
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 打包ui库
 ```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
+npm run lib
 ```
 
-### Lints and fixes files
+### 安装ui库
 ```
-npm run lint
+npm install lqs-plugin --save-dev
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+ps：typescript不是很熟练，tslint较多报错，打包需关闭tslint的校验

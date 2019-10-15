@@ -1,41 +1,48 @@
 <template>
-  <div class="btn-container" :class="{'is-loading':isLoading}">
-    <button @click="handleClick" class="btn">{{ label }}</button>
+  <div class="btn-container" :class="[{'is-loading':isLoading},{'is-disabled': disabled}]">
+    <button @click="handleClick" class="btn" :disabled="disabled">{{ label }}</button>
     <span :class="{'loading':isLoading}"></span>
   </div>
 </template>
 
 <script lang="ts">
-    import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
+  import {Vue, Component, Prop, Emit} from "vue-property-decorator";
 
-    @Component({
-        name: 'MyButton',
-        mounted() {
-        }
-    })
-    export default class MyButton extends Vue {
-        @Prop() label: string;
-        @Prop({
-          type: Boolean,
-          default: false
-        }) isLoading;
-        handleClick() {
-            this.emitClick();
-        }
-        @Emit('click')
-        emitClick(): void {
-        }
+  @Component({
+    name: "MyButton",
+    mounted() {
     }
+  })
+  export default class MyButton extends Vue {
+    @Prop() label: string;
+    @Prop({
+      default: false
+    }) disabled: boolean;
+    @Prop({
+      type: Boolean,
+      default: false
+    }) isLoading;
+
+    handleClick() {
+      this.emitClick();
+    }
+
+    @Emit("click")
+    emitClick(): void {
+    }
+  }
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-  .btn-container{
+  .btn-container {
     position: relative;
     display: inline-block;
     width: 150px;
-    .btn{
+    .btn {
       width: 150px;
+      height: 40px;
       padding: 10px 20px;
+      box-sizing: border-box;
       background: #fff;
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -89,6 +96,20 @@
     border: 1px solid #ccc;
     .btn {
       filter: blur(5px);
+      &:hover:before {
+        transform: scale(0);
+      }
+    }
+  }
+
+  .is-disabled {
+    .btn {
+      background: #ccc;
+      user-select: none;
+      cursor: not-allowed;
+      &:hover:before {
+        transform: scale(0);
+      }
     }
   }
 
