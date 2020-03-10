@@ -11,10 +11,10 @@
 </template>
 
 <script lang="ts">
-  import {Vue, Component, Prop, Emit, Model, Watch} from "vue-property-decorator";
+  import {Vue, Component, Prop, Emit, Model, Watch} from 'vue-property-decorator';
 
   @Component({
-    name: "MyFormItem"
+    name: 'MyFormItem'
   })
   export default class MyFormItem extends Vue {
     @Prop() label: string;
@@ -66,10 +66,11 @@
       margin-left: 10px;
       .errorText {
         position: absolute;
-        top: 30px;
+        top: 36px;
         left: 0;
         margin-top: 5px;
         color: red;
+        font-size: 14px;
       }
     }
   }

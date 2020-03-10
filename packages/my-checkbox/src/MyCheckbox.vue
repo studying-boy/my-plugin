@@ -24,8 +24,6 @@ selfValue绑定的是从父元素传过来的propValue，修改的时候只需�
 
   @Component({
     name: 'MyCheckbox',
-    mounted() {
-    }
   })
   export default class MyCheckbox extends Vue {
     @Prop() label: string;                                          // 文字展示

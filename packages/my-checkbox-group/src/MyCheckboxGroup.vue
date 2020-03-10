@@ -9,8 +9,6 @@
 
     @Component({
         name: 'MyCheckboxGroup',
-        mounted() {
-        }
     })
     export default class MyCheckboxGroup extends Vue{
         @Prop() labelArr: array<string>;                               // 展示文字数组

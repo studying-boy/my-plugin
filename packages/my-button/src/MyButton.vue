@@ -6,12 +6,10 @@
 </template>
 
 <script lang="ts">
-  import {Vue, Component, Prop, Emit} from "vue-property-decorator";
+  import {Vue, Component, Prop, Emit} from 'vue-property-decorator';
 
   @Component({
-    name: "MyButton",
-    mounted() {
-    }
+    name: 'MyButton',
   })
   export default class MyButton extends Vue {
     @Prop() label: string;
@@ -27,9 +25,8 @@
       this.emitClick();
     }
 
-    @Emit("click")
-    emitClick(): void {
-    }
+    @Emit('click')
+    emitClick(): void {}
   }
 </script>
 

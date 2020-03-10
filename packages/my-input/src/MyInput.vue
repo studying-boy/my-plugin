@@ -1,20 +1,28 @@
 <template>
   <div class="input-container">
-    <input :type="type" :placeholder="placeholder" class="input" v-model="selfVal" @blur="handleBlur"> <!-- @focus="handleFocus" @blur="handleBlur"-->
+    <input :type="type"
+           :placeholder="placeholder"
+           :readonly="readonly"
+           v-model="selfVal"
+           @blur="handleBlur"
+           @click="handleClick"
+           class="input"
+    > <!-- @focus="handleFocus" @blur="handleBlur"-->
   </div>
 </template>
 
 <script lang="ts">
-  import {Vue, Component, Prop, Emit, Model, Watch, Inject} from "vue-property-decorator";
+  import {Vue, Component, Prop, Emit, Model, Watch, Inject} from 'vue-property-decorator';
 
   @Component({
-    name: "MyInput",
+    name: 'MyInput',
     mounted() {
     }
   })
   export default class MyInput extends Vue {
     @Prop() placeholder: string;
     @Prop() type: string;
+    @Prop() readonly: boolean;
 
     @Model('change')
     propVal: string
@@ -27,11 +35,12 @@
     }
 
     handleFocus() {
-      console.log('我获得了焦点');
     }
     handleBlur() {
-      console.log('我失去了焦点');
       this.emitBlur();
+    }
+    handleClick() {
+      this.emitClick();
     }
 
     @Emit('change')
@@ -43,6 +52,10 @@
       if (this.$parent.isNeedCheck) {
         this.$parent.onChangeFormResult(this.selfVal);
       }
+    }
+
+    @Emit('click')
+    emitClick(): void {
     }
   }
 </script>

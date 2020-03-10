@@ -16,28 +16,26 @@ validFunc：校验函数
 </template>
 
 <script lang="ts">
-  import {Vue, Component, Prop, Emit, Model, Watch, Provide} from "vue-property-decorator";
+  import {Vue, Component, Prop, Emit, Model, Watch, Provide} from 'vue-property-decorator';
 
   @Component({
-    name: "MyForm"
+    name: 'MyForm'
   })
   export default class MyForm extends Vue {
-    @Prop() validItemArr: Array; // 需要校验的字段
+    @Prop() validItemArr: string[]; // 需要校验的字段
 
-    @Model('change', {
-
-    })
-    formResult: Object
+    @Model('change')
+    formResult: object
 
     @Watch('formResult', {
       deep: true
     })
-    onChangeFormResult(newValue) {
-    }
+    onChangeFormResult(newValue) {}
 
+    // 校验整个form的正确性
     validForm() {
-      for(let i = 0; i < this.validItemArr.length; i++) {
-        if(this.formResult[this.validItemArr[i] + 'Result'] !== true) {
+      for(const item of this.validItemArr) {
+        if(this.formResult[item + 'Result'] !== true) {
           this.formResult.isValid = false;
           return;
         }

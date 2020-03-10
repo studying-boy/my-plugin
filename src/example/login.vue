@@ -1,5 +1,7 @@
 <template>
-  
+  <div class="box">
+    1111111111111111111111111111
+  </div>
 </template>
 
 <script lang="ts">
@@ -14,5 +16,9 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-
+  .box {
+    width: 100%;
+    height: 30px;
+    background: red;
+  }
 </style>
